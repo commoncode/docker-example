@@ -1,13 +1,15 @@
 FROM python:3.6-alpine
 
-# Correct directories
-RUN mkdir /app /venv
+# Ensure correct directories and created virtualenv
+RUN mkdir /app /venv /static \
+    && python3 -m venv /venv
 
 # Install dependencies
-RUN python3 -m venv /venv \
-    && apk add --no-cache build-base linux-headers
+# Optmized to ensure build deps never persist to an image layer
 COPY requirements.txt /app
-RUN /venv/bin/pip install -r /app/requirements.txt
+RUN apk add --no-cache --virtual build-deps build-base linux-headers \
+    && /venv/bin/pip install -r /app/requirements.txt \
+    && apk del build-deps
 
 # Copy across the app code
 COPY containerized /app
