@@ -1,7 +1,7 @@
 Docker Example
 ==============
 
-A simple example Django project to illustrate using Docker
+An example Django project to illustrate using Docker
 
 Instructions
 ------------
@@ -9,11 +9,13 @@ Instructions
 To build:
 
 .. code-block:: sh
+
 	docker build -t commoncode/docker-example .
 
 or:
 
 .. code-block:: sh
+
 	make build
 
 
@@ -23,11 +25,13 @@ The above commands will cause the Docker command line tool to read in and execut
 To run once built:
 
 .. code-block:: sh
+
 	docker run --rm -it -p 8000:80 commoncode/docker-example
 
 or:
 
 .. code-block:: sh
+
 	make run
 
 Where:
