@@ -1,1 +1,15 @@
+
+# Temporary files
+__pycache__
+.pyc
+
+# Editor Config
+.idea
+*.sublime-*
+
+# Environment Management
 .python-version
+
+
+# Data files
+*.sqlite3

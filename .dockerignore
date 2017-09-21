@@ -1,3 +1,6 @@
-Dockerfile
+# A list of files that should *not* be copied into the docker image
+
 .python-version
+Dockerfile
 Makefile
+containerized/db.sqlite3
